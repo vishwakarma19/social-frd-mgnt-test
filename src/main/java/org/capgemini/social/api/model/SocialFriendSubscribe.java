@@ -15,8 +15,8 @@ import javax.persistence.Table;
  * To subscribe the friends
  */
 @Entity
-@NamedQuery(name = "social_frd_subscrib.fetchSubscribers",
-    query = "SELECT s.subscriber FROM social_frd_subscrib s WHERE s.subscribee=:subscribee")
+@NamedQuery(name = "SocialFriendSubscribe.fetchSubscribers",
+    query = "SELECT s.subscriber FROM SocialFriendSubscribe s WHERE s.subscribee=:subscribee")
 @Table(name="social_frd_subscrib")
 public class SocialFriendSubscribe implements java.io.Serializable {
 
