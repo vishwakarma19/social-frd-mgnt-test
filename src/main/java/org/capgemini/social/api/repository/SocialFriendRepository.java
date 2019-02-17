@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 /**
- * @author sudambat
+ * @author Ravi
  */
 public interface SocialFriendRepository extends JpaRepository<SocialFriend, String> {
 
@@ -20,5 +20,5 @@ public interface SocialFriendRepository extends JpaRepository<SocialFriend, Stri
      * @return List of friends for a person
      */
     @Query(nativeQuery = true)
-    List<String> fetchFriends(@Param("user") final String person);
+    List<String> fetchFriends(@Param("user") final String user);
 }
