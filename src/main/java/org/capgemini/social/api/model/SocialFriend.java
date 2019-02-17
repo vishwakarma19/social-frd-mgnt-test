@@ -1,6 +1,7 @@
 
 package org.capgemini.social.api.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,9 +14,9 @@ import javax.persistence.Table;
  *  Entity for SocialFriend
  */
 @Entity
-@NamedNativeQuery(name = "social_friend.fetchFriends",
-    query = "SELECT userTwo AS friend FROM social_friend WHERE userOne =:user" + " UNION "
-        + "SELECT userOne AS friend FROM social_friend WHERE userTwo =:user")
+@NamedNativeQuery(name = "SocialFriend.fetchFriends",
+    query = "SELECT user_two AS friend FROM social_friend WHERE user_one =:user" + " UNION "
+        + "SELECT user_one AS friend FROM social_friend WHERE user_two =:user")
 @Table(name="social_friend")
 public class SocialFriend implements java.io.Serializable {
 
@@ -25,10 +26,12 @@ public class SocialFriend implements java.io.Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
  
+	@Column(name="user_one")
 	private String userOne;
+	@Column(name="user_two")
     private String userTwo;
     
-    public SocialFriend(Long id, String userOne, String userTwo) {
+    public SocialFriend(String userOne, String userTwo) {
  		super();
  		this.userOne = userOne;
  		this.userTwo = userTwo;
