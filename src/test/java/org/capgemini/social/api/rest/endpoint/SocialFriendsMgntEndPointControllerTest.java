@@ -1,4 +1,4 @@
-package org.capgemini.social.api.rest.endpoint.test;
+package org.capgemini.social.api.rest.endpoint;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -22,7 +22,7 @@ import org.junit.runner.JUnitCore;
 public class SocialFriendsMgntEndPointControllerTest {
 
     @Test
-    public void SocialFriendsMgntEndPointControllerTest()
+    public void testSocialFriendsMgntEndPointController()
         throws Exception {
 	SocialFriendsMgntEndPointController result = new SocialFriendsMgntEndPointController();
         assertNotNull(result);
@@ -76,7 +76,7 @@ public class SocialFriendsMgntEndPointControllerTest {
        
         ToggleFriendSubscribeDTO tsubsDTO = new ToggleFriendSubscribeDTO();
         tsubsDTO.setTarget("vishwakarma@gmail.com");
-        tsubsDTO.setRequestor(" sudhansu@gmail.com");
+        tsubsDTO.setRequestor("sudhansu@gmail.com");
 
         BaseResponseDTO result = restController.blockUnwantedFriend(tsubsDTO);
 
@@ -94,7 +94,7 @@ public class SocialFriendsMgntEndPointControllerTest {
        
         ToggleFriendSubscribeDTO tsubsDTO = new ToggleFriendSubscribeDTO();
         tsubsDTO.setTarget("vishwakarma@gmail.com");
-        tsubsDTO.setRequestor(" sudhansu@gmail.com");
+        tsubsDTO.setRequestor("sudhansu@gmail.com");
 
 
         BaseResponseDTO result = restController.userSubscribe(tsubsDTO);
@@ -104,6 +104,6 @@ public class SocialFriendsMgntEndPointControllerTest {
     }
 
     public static void main(String[] args) {
-        new JUnitCore().run(SocialFriendsMgntEndPointController.class);
+        new JUnitCore().run(SocialFriendsMgntEndPointControllerTest.class);
     }
 }
