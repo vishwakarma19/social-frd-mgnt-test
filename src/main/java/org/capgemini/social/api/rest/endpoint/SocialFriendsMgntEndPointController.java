@@ -6,8 +6,8 @@ import org.capgemini.social.api.dto.BaseResponseDTO;
 import org.capgemini.social.api.dto.EmailDTO;
 import org.capgemini.social.api.dto.FriendsResponseDTO;
 import org.capgemini.social.api.dto.InviteFriendDTO;
-import org.capgemini.social.api.dto.SocialUpdateRecieveDTO;
-import org.capgemini.social.api.dto.ReciveUpdateResponseDTO;
+import org.capgemini.social.api.dto.SocialNotificationDTO;
+import org.capgemini.social.api.dto.ReceiverUpdateResponseDTO;
 import org.capgemini.social.api.dto.RuntimeExceptionResponseDTO;
 import org.capgemini.social.api.dto.SuccessResponseDTO;
 import org.capgemini.social.api.dto.ToggleFriendSubscribeDTO;
@@ -35,16 +35,16 @@ public class SocialFriendsMgntEndPointController {
     private static final Logger LOGGER = LoggerFactory.getLogger(SocialFriendsMgntEndPointController.class);
 
     @Autowired
-    SocialUserProfileService socialUserProfileService;
+   public SocialUserProfileService socialUserProfileService;
 
     @Autowired
-    SocialFriendRequestService socialFriendRequestService;
+    public  SocialFriendRequestService socialFriendRequestService;
 
     @Autowired
-    SocialFriendBlockingService socialFriendBlockingService;
+    public SocialFriendBlockingService socialFriendBlockingService;
 
     @Autowired
-    SocialFriendSubscribeService socialFriendSubService;
+    public SocialFriendSubscribeService socialFriendSubService;
 
     @PostMapping("/logon")
     public BaseResponseDTO logOn(@RequestBody EmailDTO emailDTO) {
@@ -175,7 +175,7 @@ public class SocialFriendsMgntEndPointController {
      * @return BaseResponseDTO
      */
     @PostMapping("/notifyuser")
-    public BaseResponseDTO userNotification(@RequestBody SocialUpdateRecieveDTO nofifyUserDTO) {
+    public BaseResponseDTO userNotification(@RequestBody SocialNotificationDTO nofifyUserDTO) {
 	List<String> recipentList = null;
 	try {
 	    LOGGER.info("userNotification {} {}", nofifyUserDTO.getSender(), nofifyUserDTO.getText());
@@ -188,7 +188,7 @@ public class SocialFriendsMgntEndPointController {
 	    return new RuntimeExceptionResponseDTO(SocialConstantUtil.UNKNOWN_ERROR_CODE,
 		    SocialConstantUtil.UNKNOWN_ERROR_MESSAGE);
 	}
-	return new ReciveUpdateResponseDTO(recipentList);
+	return new ReceiverUpdateResponseDTO(recipentList);
     }
 
 }

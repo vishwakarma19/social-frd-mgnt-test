@@ -6,11 +6,11 @@ import java.util.List;
  * @author Ravi
  *
  */
-public class ReciveUpdateResponseDTO extends BaseResponseDTO {
+public class ReceiverUpdateResponseDTO extends BaseResponseDTO {
 
     private List<String> recipients;
 
-    public ReciveUpdateResponseDTO(List<String> recipients) {
+    public ReceiverUpdateResponseDTO(List<String> recipients) {
         super(true);
         this.recipients = recipients;
     }

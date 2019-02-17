@@ -3,7 +3,7 @@ package org.capgemini.social.api.dto;
 /**
  * @author Ravi
  */
-public class SocialUpdateRecieveDTO {
+public class SocialNotificationDTO {
 
     private String sender;
     private String text;

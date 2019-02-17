@@ -6,7 +6,7 @@ package org.capgemini.social.api.service;
 import java.util.List;
 
 import org.capgemini.social.api.dto.InviteFriendDTO;
-import org.capgemini.social.api.dto.SocialUpdateRecieveDTO;
+import org.capgemini.social.api.dto.SocialNotificationDTO;
 
 /**
  * @author Ravi
@@ -34,5 +34,5 @@ public interface SocialFriendRequestService {
      * @param reciveUpdateDTO
      * @return List of user for notification.
      */
-    List<String> getNotification(final SocialUpdateRecieveDTO reciveUpdateDTO);
+    List<String> getNotification(final SocialNotificationDTO reciveUpdateDTO);
 }

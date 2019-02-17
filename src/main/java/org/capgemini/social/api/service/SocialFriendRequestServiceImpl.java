@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.capgemini.social.api.dto.InviteFriendDTO;
-import org.capgemini.social.api.dto.SocialUpdateRecieveDTO;
+import org.capgemini.social.api.dto.SocialNotificationDTO;
 import org.capgemini.social.api.exception.DuplicateFriendInvitaionException;
 import org.capgemini.social.api.exception.FriendBlockingException;
 import org.capgemini.social.api.exception.InvalidFriendRequestException;
@@ -83,7 +83,7 @@ public class SocialFriendRequestServiceImpl implements SocialFriendRequestServic
 
 	
 	@Override
-	public List<String> getNotification(SocialUpdateRecieveDTO reciveUpdateDTO) {
+	public List<String> getNotification(SocialNotificationDTO reciveUpdateDTO) {
 		
 		if (null == reciveUpdateDTO.getSender() || null == reciveUpdateDTO.getText()) {
 			LOGGER.info("InvalidFriendRequestException :: getUpdate {} {}", reciveUpdateDTO.getSender(),
