@@ -1,6 +1,3 @@
-/**
- * 
- */
 package org.capgemini.social.api.model;
 
 import javax.persistence.Entity;
@@ -15,7 +12,7 @@ import javax.persistence.Table;
  * To block the user
  */
 @Entity
-@NamedQuery(name = "social_frd_block.fetchBlockers",
+@NamedQuery(name = "SocialFriendBlock.fetchBlockers",
     query = "SELECT bl.blocker FROM SocialFriendBlock bl WHERE bl.blockee=:blockee")
 @Table(name="social_frd_block")
 public class SocialFriendBlock implements java.io.Serializable {
