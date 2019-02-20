@@ -2,6 +2,8 @@ package org.capgemini.social.api.rest.endpoint;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.capgemini.social.api.dto.BaseResponseDTO;
 import org.capgemini.social.api.dto.EmailDTO;
 import org.capgemini.social.api.dto.FriendsResponseDTO;
@@ -47,7 +49,7 @@ public class SocialFriendsMgntEndPointController {
     public SocialFriendSubscribeService socialFriendSubService;
 
     @PostMapping("/logon")
-    public BaseResponseDTO logOn(@RequestBody EmailDTO emailDTO) {
+    public BaseResponseDTO logOn(@Valid @RequestBody EmailDTO emailDTO) {
 	socialUserProfileService.signUp(emailDTO);
 	return new SuccessResponseDTO();
     }
@@ -57,7 +59,7 @@ public class SocialFriendsMgntEndPointController {
      * @return BaseResponseDTO
      */
     @PostMapping("/makeFriendRequest")
-    public BaseResponseDTO makeFriendship(@RequestBody InviteFriendDTO invitationDTO) {
+    public BaseResponseDTO makeFriendship(@Valid @RequestBody InviteFriendDTO invitationDTO) {
 	try {
 	    LOGGER.info("makeFriendRequest  {} {}", invitationDTO.getFriends().get(0),
 		    invitationDTO.getFriends().get(1));
@@ -81,7 +83,7 @@ public class SocialFriendsMgntEndPointController {
      * @return BaseResponseDTO
      */
     @PostMapping("/myfriendlist")
-    public BaseResponseDTO myFriendList(@RequestBody EmailDTO emailDTO) {
+    public BaseResponseDTO myFriendList(@Valid @RequestBody EmailDTO emailDTO) {
 	List<String> friendsList = null;
 	try {
 	    LOGGER.info("myFriendList ", emailDTO.getEmail());
@@ -103,7 +105,7 @@ public class SocialFriendsMgntEndPointController {
      * @return BaseResponseDTO
      */
     @PostMapping("/commonfriends")
-    public BaseResponseDTO getCommonFriends(@RequestBody InviteFriendDTO invitationDTO) {
+    public BaseResponseDTO getCommonFriends(@Valid @RequestBody InviteFriendDTO invitationDTO) {
 	List<String> commonFriendsList = null;
 	try {
 	    LOGGER.info("getCommonFriends {} {}", invitationDTO.getFriends().get(0), invitationDTO.getFriends().get(1));
@@ -127,7 +129,7 @@ public class SocialFriendsMgntEndPointController {
      * @return BaseResponseDTO
      */
     @PostMapping("/usersubscribe")
-    public BaseResponseDTO userSubscribe(@RequestBody ToggleFriendSubscribeDTO togleSubsDTO) {
+    public BaseResponseDTO userSubscribe(@Valid @RequestBody ToggleFriendSubscribeDTO togleSubsDTO) {
 
 	try {
 	    LOGGER.info("subscribe {} {}", togleSubsDTO.getRequestor(), togleSubsDTO.getTarget());
@@ -149,7 +151,7 @@ public class SocialFriendsMgntEndPointController {
      * @return BaseResponseDTO
      */
     @PostMapping("/blockfriend")
-    public BaseResponseDTO blockUnwantedFriend(@RequestBody ToggleFriendSubscribeDTO toggleSubscriptionDTO) {
+    public BaseResponseDTO blockUnwantedFriend(@Valid @RequestBody ToggleFriendSubscribeDTO toggleSubscriptionDTO) {
 
 	try {
 	    LOGGER.info("block your friend {} {}", toggleSubscriptionDTO.getRequestor(),
@@ -175,7 +177,7 @@ public class SocialFriendsMgntEndPointController {
      * @return BaseResponseDTO
      */
     @PostMapping("/notifyuser")
-    public BaseResponseDTO userNotification(@RequestBody SocialNotificationDTO nofifyUserDTO) {
+    public BaseResponseDTO userNotification(@Valid @RequestBody SocialNotificationDTO nofifyUserDTO) {
 	List<String> recipentList = null;
 	try {
 	    LOGGER.info("userNotification {} {}", nofifyUserDTO.getSender(), nofifyUserDTO.getText());
