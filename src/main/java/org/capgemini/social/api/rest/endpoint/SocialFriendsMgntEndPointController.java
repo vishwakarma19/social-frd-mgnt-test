@@ -173,7 +173,7 @@ public class SocialFriendsMgntEndPointController {
     }
 
     /**
-     * @param nofifyUserDTO
+     * @param nofifyUserDTO - To update the subscribed and friend
      * @return BaseResponseDTO
      */
     @PostMapping("/notifyuser")

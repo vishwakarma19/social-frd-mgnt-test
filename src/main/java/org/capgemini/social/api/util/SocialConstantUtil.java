@@ -6,8 +6,6 @@ package org.capgemini.social.api.util;
  */
 public interface SocialConstantUtil {
 
-	
-
 	 String UNKNOWN_ERROR_CODE = "500";
 
 	  String UNKNOWN_ERROR_MESSAGE = "Unknown Error Cought";
